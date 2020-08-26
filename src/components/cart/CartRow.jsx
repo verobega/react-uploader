@@ -1,35 +1,41 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styles from './cart.module.css'
+import {CartContext, } from '../contexts/useCart'
 
 const img = "https://gopherbot.com/images/gopher.jpg"
 
-export default ({})=>{
+export default ({product, title, price, pics=[], quantity=1, _id})=>{
+
+    let {changeQuantity, deleteItem, addItemToCart} = useContext(CartContext) //aqui llamas a la funcion del total
+
     return (
         <div className={styles.rowContainer}>
             <div>
-                <img src={img} alt="blissito" />
+                <img src={pics[0]} alt="blissito" />
             </div>
             <div >
                 <span>
-                    Premium pack
-                </span>
-                <span>
-                    20 pic Pack
+                    {title}
                 </span>
                 <div>
-                    <button>
-                        -
-                    </button>
-                    <input type="number"/>
-                    <button>
-                        +
-                    </button>
+                    
+                <span>Cantidad:</span>
+                    <input value={quantity} type="number" min="10" max="99"/>
+                    
                 </div>
             </div>
             <div>
-                <span>x</span>
-                <span>$ 150.00</span>
+                
+                <span>$ {price}.00</span>
             </div>
+            <span>Total</span>
+
+                <span>$ {quantity*price}.00</span>
+                <span
+                onClick={()=>{
+                    deleteItem(_id)
+                }}
+                >Eliminar</span>
         </div>
     )
 }

@@ -11,7 +11,7 @@
 .cartHolder{
     width:500px;
     height: 100vh;
-    background-color: royalblue;
+    background-color: rgb(169, 204, 250);
     position: fixed;
     top:0;
     right: 0;

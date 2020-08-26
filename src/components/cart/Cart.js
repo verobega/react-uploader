@@ -4,10 +4,12 @@ import CartRow from './CartRow'
 import useCart from '../customHooks/useCart'
 import {CartContext} from '../contexts/useCart'
 
+
 export default function Cart({show=false, onCancel}){
 
     let cart = useContext(CartContext)
     let {items} = cart.state
+    let {getTotalCard} = useContext(CartContext)
 
     useEffect(()=>{
         console.log("desde el carrito: ", cart.state)
@@ -26,6 +28,7 @@ export default function Cart({show=false, onCancel}){
                 `${styles.cartOverlay} ${styles.hidden}`
             } >
                 {items.map(p=><CartRow key={p.id} {...p} />)}
+        <h2>Total en el carrito $ { getTotalCard() }.00 MXN</h2>
             </div>
 
         </Fragment>

@@ -2,6 +2,7 @@ import React, {useEffect, useState, useContext} from 'react'
 import {Link} from 'react-router-dom'
 import useCart from '../customHooks/useCart'
 import {CartContext} from '../contexts/useCart'
+import styles from './products.module.css'
 
 export default function ListView(){
     let [products, setProducts] = useState([])
@@ -22,7 +23,7 @@ export default function ListView(){
     }
 
     return (
-        <div style={{display:"flex", justifyContent:"space-around", flexWrap:"wrap"}}>
+        <div className={styles.productsCard}>
             {products.map(p=>
             <p>
                 <img width="100" src={p.pics[0]} />

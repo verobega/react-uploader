@@ -1,0 +1,25 @@
+.productsCard{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.productsCard p {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 320px;
+    margin: 20px;
+    text-align: center;
+    padding: 0px 0px 10px 0px;
+}
+
+.productsCard p img{
+    width: 200px;
+    border-radius: 10px;
+}
+
+.productsCard a{
+    text-decoration: none;
+}

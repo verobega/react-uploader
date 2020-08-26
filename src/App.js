@@ -1,12 +1,15 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 // import logo from './logo.svg';
 import './App.css';
 // import Uploader from './components/Uploader' 
 import Cart from './components/cart/Cart';
 import Routes from './Routes';
+import {CartContext} from './components/contexts/useCart'
 
 
 function App() {
+
+  let {state:cartState} = useContext(CartContext)
 
   useEffect(() => {
     console.log("effect");
@@ -31,6 +34,12 @@ function App() {
   })
   let [list, setList] = useState([])
 
+  useEffect(()=>{
+    if(!!cartState.items.length){
+      setState({...state, show:true})
+    }
+  }, [cartState])
+
   function toggleShow(){
     setState({...state, show: !state.show})
   }
@@ -38,7 +47,7 @@ function App() {
   return (
     <div >
     <button onClick={toggleShow}>
-      Blissito
+      Ir al Carrito
     </button>
 
       <Routes />
